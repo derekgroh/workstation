@@ -15,7 +15,15 @@ platforms:
   - name: centos-7.1
 
 suites:
-  - name: default
+  - name: source
     run_list:
       - recipe[workstation::default]
     attributes:
+      vim:
+        install_method: "source"
+  - name: package
+    run_list:
+      - recipe[workstation::default]
+    attributes:
+      vim:
+        install_method: "package"    

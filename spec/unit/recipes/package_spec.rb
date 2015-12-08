@@ -31,7 +31,6 @@ describe 'vim::package' do
 
           expect(chef_runner).to install_package(package_name)
         end
-
       end
     end
   end

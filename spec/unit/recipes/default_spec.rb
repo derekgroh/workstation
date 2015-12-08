@@ -8,7 +8,7 @@ require 'spec_helper'
 
 describe 'vim::default' do
   let :chef_run do
-    ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04')
+    ChefSpec::SoloRunner.new
   end
 
   it "should have default install_method 'package'" do
