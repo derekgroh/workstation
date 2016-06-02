@@ -6,7 +6,7 @@
 
 require 'spec_helper'
 
-describe 'workstation::default' do
+describe 'workstation::vagrant_plugins' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new(
