@@ -9,6 +9,6 @@
 node['workstation']['packages'].each do |package|
   powershell_script "Install #{package}" do
     code "choco install -y #{package}"
-    not_if "(choco list -l) -match '#{package}'"
+#    not_if "(choco list --local-only) -match '#{package}'"
   end
 end

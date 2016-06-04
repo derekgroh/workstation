@@ -7,7 +7,7 @@
 # List of vagrant plugins for local development
 
 node['workstation']['vagrant_plugins'].each do |plugin|
-  powershell_script "Install #{plugin}" do
-    code "vagrant plugin install #{plugin}"
+  powershell_script "vagrant plugin install #{plugin}" do
+    code "c:\\HashiCorp\\Vagrant\\bin\\vagrant.exe plugin install #{plugin}"
   end
 end
