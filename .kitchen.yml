@@ -7,8 +7,8 @@ provisioner:
 
 # Uncomment the following verifier to leverage Inspec instead of Busser (the
 # default verifier)
-# verifier:
-#   name: inspec
+verifier:
+  name: inspec
 
 platforms:
   - name: windows-7
@@ -21,3 +21,5 @@ suites:
     run_list:
       - recipe[workstation::default]
     attributes:
+      workstation:
+        source_destination: 'c:/source'
