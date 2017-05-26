@@ -10,6 +10,20 @@ default['workstation']['packages'] = ['7zip',
                                       'chefdk',
                                       'notepadplusplus'
                                      ]
+default['workstation']['nix_packages'] = ['nano',
+                                          'binutils',
+                                          'qt',
+                                          'gcc',
+                                          'make',
+                                          'patch',
+                                          'libgomp',
+                                          'glibc-headers',
+                                          'glibc-devel',
+                                          'kernel-headers',
+                                          'kernel-devel',
+                                          'dkms',
+                                          'VirtualBox-5.1'
+                                         ]
 # gems to install
 default['workstation']['gems'] = ['kitchen-pester',
                                   'kitchen-hyperv',
