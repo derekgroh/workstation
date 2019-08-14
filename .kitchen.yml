@@ -3,18 +3,48 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_zero
+#  name: chef_zero
+  name: nodes
+  always_update_cookbooks: true
+  retry_on_exit_code:
+    - 35
+    - 1
+  wait_for_retry: 300
+  max_retries: 2
+  product_name: chef
+  product_version: '14' # <%= ENV['CHEF_VERSION'] || 'latest' %>
+  install_strategy: once
 
-# Uncomment the following verifier to leverage Inspec instead of Busser (the
-# default verifier)
 verifier:
   name: inspec
 
 platforms:
   - name: windows-7
+    driver:
+      network:
+        - ["private_network", {type: "dhcp"}]   
   - name: windows-10
+    driver:
+      network:
+        - ["private_network", {type: "dhcp"}]   
   - name: windows-2008r2
+    driver:
+      box: tas50/windows_2008r2
+      network:
+        - ["private_network", {type: "dhcp"}] 
   - name: windows-2012r2
+    driver:
+      box: tas50/windows_2012r2
+      network:
+        - ["private_network", {type: "dhcp"}]      
+  - name: windows-2016
+    driver:
+      box: tas50/windows_2016
+      network:
+        - ["private_network", {type: "dhcp"}]
+      vm_hostname: kitchen      
+      customize:
+        memory: 2048
 
 suites:
   - name: default

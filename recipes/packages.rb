@@ -6,9 +6,10 @@
 
 # List of packages in addition to ChefDK for local development
 
+include_recipe 'chocolatey'
+
 node['workstation']['packages'].each do |package|
-  powershell_script "Install #{package}" do
-    code "choco install -y #{package}"
-#    not_if "(choco list --local-only) -match '#{package}'"
+  chocolatey_package "Install #{package}" do
+    package_name package
   end
 end

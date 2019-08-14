@@ -1,0 +1,11 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - files/default/vendor/**/*
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Lint/AmbiguousRegexpLiteral:
+  Exclude:
+    - '**/test/**/*'
+Layout/EndOfLine:
+  Enabled: false
