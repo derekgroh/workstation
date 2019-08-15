@@ -12,7 +12,7 @@ provisioner:
   wait_for_retry: 300
   max_retries: 2
   product_name: chef
-  product_version: '14' # <%= ENV['CHEF_VERSION'] || 'latest' %>
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   install_strategy: once
 
 verifier:
