@@ -19,12 +19,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: windows-7
-    driver:
-      network:
-        - ["private_network", {type: "dhcp"}]   
   - name: windows-10
     driver:
+      box: tas50/windows_10
       network:
         - ["private_network", {type: "dhcp"}]   
   - name: windows-2008r2
@@ -45,6 +42,14 @@ platforms:
       vm_hostname: kitchen      
       customize:
         memory: 2048
+  - name: windows-2019
+    driver:
+      box: tas50/windows_2019
+      network:
+        - ["private_network", {type: "dhcp"}]
+      vm_hostname: kitchen      
+      customize:
+        memory: 2048
 
 suites:
   - name: default
@@ -53,3 +58,8 @@ suites:
     attributes:
       workstation:
         source_destination: 'c:/source'
+    excludes: 
+      - windows-2008r2
+      - windows-2012r2
+      - windows-2016
+      - windows-2019
